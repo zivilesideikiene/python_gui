@@ -148,6 +148,7 @@ def spausdinti():
     vardas = laukas1.get()
     print(f"Labas, {vardas}!")
     rezultatas["text"] = f"Labas {vardas}!"
+    status["text"] = "Sukurta"
 
 def spausdinti3(event):
     print("Paspaustas ENTER!")
@@ -155,15 +156,18 @@ def spausdinti3(event):
 def istrinti():
     print("Tekstas istrintas")
     rezultatas["text"] = f""
+    status["text"] = "Isvalyta"
 
 def atkurti():
     vardas = laukas1.get()
     print("Tekstas atkurtas")
     rezultatas["text"] = f"Labas {vardas}!"
+    status["text"] = "Atkurta"
 
 def iseiti():
     print("Programa isjungta") #ARBA langas.destroy()
     quit(langas)
+
 
 meniu.add_cascade(label="Meniu", menu=submeniu)
 submeniu.add_command(label="Isvalyti", command=istrinti)
