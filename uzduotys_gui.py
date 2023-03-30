@@ -139,6 +139,10 @@ meniu = Menu(langas)
 langas.config(menu=meniu)
 submeniu = Menu(meniu, tearoff=0)
 
+status = Label(langas, text="Nieko nedaro...", bd=1, relief=SUNKEN, anchor=W)
+
+def update_status_bar(text):
+    status["text"] = text
 
 def spausdinti():
     vardas = laukas1.get()
@@ -158,7 +162,7 @@ def atkurti():
     rezultatas["text"] = f"Labas {vardas}!"
 
 def iseiti():
-    print("Programa isjungta")
+    print("Programa isjungta") #ARBA langas.destroy()
     quit(langas)
 
 meniu.add_cascade(label="Meniu", menu=submeniu)
@@ -182,6 +186,9 @@ mygtukas2.grid(row=0, column=2, columnspan=2)
 
 rezultatas = Label(langas, text="")  #grazina teksta labas + vardas
 rezultatas.grid(row=3, columnspan=3)
+
+#STATUSO JUOSTA
+status.grid(row=6, columnspan=3, sticky=W+E)
 
 langas.bind("<Return>", spausdinti3)
 langas.mainloop()
